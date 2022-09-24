@@ -9,4 +9,11 @@ public class Category {
     public String getName() {
         return Name;
     }
+
+    @Override
+    public String toString() {
+        return "\n\t\t\t\t\tCategory{" +
+                "\n\t\t\t\t\t\tName='" + Name + '\'' +
+                "\n\t\t\t\t\t}";
+    }
 }

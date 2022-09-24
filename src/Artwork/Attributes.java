@@ -104,7 +104,7 @@ public class Attributes {
 
     private List<String> localizations;
 
-    public Attributes(String yearFrom, String yearTo, String date, String invNo, String plainDescription, String locale, Artwork.Category category, List<String> descriptions, List<String> keywords, List<String> documentationOtherSources, List<SubtitleItems> subtitle) {
+    public Attributes(String yearFrom, String yearTo, String date, String invNo, String plainDescription, String locale, Artwork.Category category, List<String> descriptions, List<String> keywords, List<String> documentationOtherSources, List<SubtitleItems> subtitle, List<TitleItems> title, List<Dimensions3DItems> dimensions3D, List<Dimensions2DItems> dimensions2D, List<String> dimensionsTime, List<String> dimensionsText, List<String> material, List<MaterialTechniquesItems> materialTechniques, List<String> technique, List<String> localizations) {
         YearFrom = yearFrom;
         YearTo = yearTo;
         Date = date;
@@ -116,6 +116,15 @@ public class Attributes {
         Keywords = keywords;
         DocumentationOtherSources = documentationOtherSources;
         Subtitle = subtitle;
+        Title = title;
+        Dimensions3D = dimensions3D;
+        Dimensions2D = dimensions2D;
+        DimensionsTime = dimensionsTime;
+        DimensionsText = dimensionsText;
+        Material = material;
+        MaterialTechniques = materialTechniques;
+        Technique = technique;
+        this.localizations = localizations;
     }
 
     public String getYearFrom() {
@@ -144,5 +153,83 @@ public class Attributes {
 
     public Artwork.Category getCategory() {
         return Category;
+    }
+
+    public List<String> getDescriptions() {
+        return Descriptions;
+    }
+
+    public List<String> getKeywords() {
+        return Keywords;
+    }
+
+    public List<String> getDocumentationOtherSources() {
+        return DocumentationOtherSources;
+    }
+
+    public List<SubtitleItems> getSubtitle() {
+        return Subtitle;
+    }
+
+    public List<TitleItems> getTitle() {
+        return Title;
+    }
+
+    public List<Dimensions3DItems> getDimensions3D() {
+        return Dimensions3D;
+    }
+
+    public List<Dimensions2DItems> getDimensions2D() {
+        return Dimensions2D;
+    }
+
+    public List<String> getDimensionsTime() {
+        return DimensionsTime;
+    }
+
+    public List<String> getDimensionsText() {
+        return DimensionsText;
+    }
+
+    public List<String> getMaterial() {
+        return Material;
+    }
+
+    public List<MaterialTechniquesItems> getMaterialTechniques() {
+        return MaterialTechniques;
+    }
+
+    public List<String> getTechnique() {
+        return Technique;
+    }
+
+    public List<String> getLocalizations() {
+        return localizations;
+    }
+
+    @Override
+    public String toString() {
+        return "\n\t\t\t\tAttributes" +
+                "\n\t\t\t\t\tYearFrom='" + YearFrom + '\'' +
+                "\n\t\t\t\t\tYearTo='" + YearTo + '\'' +
+                "\n\t\t\t\t\tDate='" + Date + '\'' +
+                "\n\t\t\t\t\tInvNo='" + InvNo + '\'' +
+                "\n\t\t\t\t\tPlainDescription='" + PlainDescription + '\'' +
+                "\n\t\t\t\t\tlocale='" + locale + '\'' +
+                "\n\t\t\t\t\tCategory=" + Category +
+                "\n\t\t\t\t\tDescriptions=" + Descriptions +
+                "\n\t\t\t\t\tKeywords=" + Keywords +
+                "\n\t\t\t\t\tDocumentationOtherSources=" + DocumentationOtherSources +
+                "\n\t\t\t\t\tSubtitle=" + Subtitle +
+                "\n\t\t\t\t\tTitle=" + Title +
+                "\n\t\t\t\t\tDimensions3D=" + Dimensions3D +
+                "\n\t\t\t\t\tDimensions2D=" + Dimensions2D +
+                "\n\t\t\t\t\tDimensionsTime=" + DimensionsTime +
+                "\n\t\t\t\t\tDimensionsText=" + DimensionsText +
+                "\n\t\t\t\t\tMaterial=" + Material +
+                "\n\t\t\t\t\tMaterialTechniques=" + MaterialTechniques +
+                "\n\t\t\t\t\tTechnique=" + Technique +
+                "\n\t\t\t\t\tlocalizations=" + localizations +
+                "\n\t\t\t\t}";
     }
 }

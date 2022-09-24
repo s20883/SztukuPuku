@@ -1,6 +1,4 @@
-import Artwork.Attributes;
-import Artwork.Category;
-import Artwork.Data;
+import Artwork.*;
 import com.google.gson.Gson;
 import jdk.jfr.Configuration;
 import org.json.simple.JSONObject;
@@ -11,6 +9,7 @@ import java.net.URL;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -27,53 +26,21 @@ public class Main {
 
 
     public static void main(String[] args) {
-        List<String> descriptions = new ArrayList<>();
-        descriptions.add("des1");
-        descriptions.add("des2");
 
-        List<String> keywords = new ArrayList<>();
-        descriptions.add("key1");
-        descriptions.add("key2");
+        StringBuilder sb = new StringBuilder();
 
-        List<String> documentationOtherSources = new ArrayList<>();
-        descriptions.add("dec1");
-        descriptions.add("dec2");
+        String request = "/1";
+        try {
+            sb.append(getArtwork(request));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-        List<Attributes.SubtitleItems> subtitle = new ArrayList<>();
-        subtitle.add(new Attributes.SubtitleItems("sub1"));
-        subtitle.add(new Attributes.SubtitleItems("sub2"));
+        ArtworkItem artworkItem = new Gson().fromJson(sb.toString(), ArtworkItem.class);
 
+        System.out.println(artworkItem.toString());
 
-
-        Data data = new Data(
-                "typ",
-                "1",
-                new Attributes(
-                        null,
-                        null,
-                        "1999",
-                        "inv_no_34",
-                        "Opis",
-                        "pl",
-                        new Category("nazwa kategorii"),
-                        descriptions,
-                        keywords,
-                        documentationOtherSources,
-                        subtitle
-                )
-
-        );
-
-        String json = new Gson().toJson(data);
-        System.out.println(json);
-
-//        try {
-//            getArtwork("");
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
     }
-
 
     public static String getArtwork(String command) throws IOException {
 
@@ -101,11 +68,7 @@ public class Main {
 
         in.close();
 
-//        JSONObject jsonObject = new JSONObject();
-//        jsonObject.
-
-
-        System.out.println("Response:-" + response.toString());
+        //System.out.println("Response:-" + response.toString());
         return response.toString();
     }
 }

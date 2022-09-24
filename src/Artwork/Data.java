@@ -10,10 +10,47 @@ public class Data {
 
     private Attributes attributes;
 
+    private Relationships relationships;
 
-    public Data(String type, String id, Attributes attributes) {
+    private Links links;
+
+
+    public Data(String type, String id, Attributes attributes, Relationships relationships, Links links) {
         this.type = type;
         this.id = id;
         this.attributes = attributes;
+        this.relationships = relationships;
+        this.links = links;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public Attributes getAttributes() {
+        return attributes;
+    }
+
+    public Relationships getRelationships() {
+        return relationships;
+    }
+
+    public Links getLinks() {
+        return links;
+    }
+
+    @Override
+    public String toString() {
+        return "\n\t\tData{" +
+                "\n\t\t\ttype='" + type + '\'' +
+                "\n\t\t\tid='" + id + '\'' +
+                "\n\t\t\tattributes=" + attributes +
+                "\n\t\t\trelationships=" + relationships +
+                "\n\t\t\tlinks=" + links +
+                "\n\t\t}";
     }
 }
